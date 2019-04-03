@@ -31,6 +31,8 @@ class Marchand {
         {
             this.actual_gold = this.actual_gold - nbregold;
             this.actual_corn = this.actual_corn + corn_for_exchange;
+            m.actual_corn = m.actual_corn - corn_for_exchange;
+            m.actual_gold = m.actual_gold + nbregold;
         }
     }
 
@@ -48,7 +50,9 @@ class Marchand {
         else
         {
             this.actual_corn = this.actual_corn - nbrecorn;
-            this.actual_gold = this.actual_gold + 2 * gold_for_exchange;
+            this.actual_gold = this.actual_gold + gold_for_exchange;
+            m.actual_corn =  m.actual_corn + nbrecorn;
+            m.actual_gold =  m.actual_gold - gold_for_exchange ;
         }
     }
 
