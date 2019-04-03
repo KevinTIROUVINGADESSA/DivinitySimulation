@@ -16,5 +16,7 @@
     "chai-as-promised": "^7.1.1",
     "mocha": "^6.0.2",
     "xo": "^0.24.0"
-  }
+  },
+  "repository": "https://github.com/Telsho/DivinitySimulation.git",
+  "author": "yayax <greddu9t@gmail.com>"
 }
