@@ -5,7 +5,7 @@ class City {
     constructor(name, divinityName) {
         this.name_ = name || 'UNKCITY';
         this.divinity_ = new Divinity(divinityName);
-        this.population = new Population(Math.random() * 200, Math.random() * 200, Math.random() * 200);
+        this.population_ = new Population(Math.random() * 200, Math.random() * 200, Math.random() * 200);
         this.corn_ = 1000;
         this.gold_ = 1000;
         this.init();
@@ -38,8 +38,8 @@ class City {
     }
 
     showShit() {
-        console.log(`${this.name_}: C ${this.corn_}, G ${this.gold_}, Divinity ${this.divinity_.name}`);
-        console.log(`${this.population.showPop()}`)
+        console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity:${this.divinity_.name}`);
+        console.log(`${this.population_.showPop()}`)
     }
 }
 

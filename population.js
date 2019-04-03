@@ -25,8 +25,8 @@ class Population {
     popOver() {
         if (this.nbGuerrier || this.nbMarchand || this.nbPeon)
         {
-            console.log('Allah akhbar !')
-            console.log('La ville est detruite par manque de citoyen')
+            console.log('Allah akhbar !');
+            console.log('La ville est detruite par manque de citoyen');
             delete this;
         }
     }
