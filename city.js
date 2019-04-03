@@ -27,6 +27,14 @@ class City {
         this.gold_ = 0;
     }
 
+    get corn() {
+        return this.gold_;
+    }
+
+    get gold() {
+        return this.corn_;
+    }
+
     showShit() {
         console.log(`${this.name_}: C ${this.corn_}, G ${this.gold_}`);
     }
