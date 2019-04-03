@@ -1,7 +1,7 @@
 
 
 class Guerrier {
-
+    // Notion de temporalitée a implementer
     constructor(age,force,pv,moral)
     {
         this.age = age || "ELIAS";
@@ -12,7 +12,7 @@ class Guerrier {
 
     Decrire()
     {
-        console.log(`Vos soldats ont ${this.age} ans, ${this.force} de force, ${this.pv} PV et ${this.moral} de moral`);
+        console.log(`Votre soldats a ${this.age} ans, ${this.force} de force, ${this.pv} PV et ${this.moral} de moral`);
     }
 
     Attack(g)
