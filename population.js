@@ -46,7 +46,10 @@ class Population {
             console.log(`${this.guerriers[i].Decrire()}`);
         }
         console.log(`Nombre de peons : ${this.nbPeon}`);
-
+        /*for (var i = 0; i < this.nbPeon; i++)
+        {
+            console.log(`${this.peons[i].Decrire()}`);
+        }*/
     }
 
     reviveGue() {
