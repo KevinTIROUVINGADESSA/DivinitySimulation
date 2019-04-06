@@ -21,8 +21,7 @@ class Population {
         }
         for (let i = 0; i < this.nbMarchand; i++)
         {
-            this.marchands[i] = new Marchand(Math.floor(Math.random()*50), Math.floor(Math.random()*50),
-                Math.floor(Math.random()*50), Math.floor(Math.random()*50))
+            this.marchands[i] = new Marchand(Math.floor(Math.random()*50), Math.floor(Math.random()*50));
         }
         /*for (var i = 0; i < this.nbPeon; i++)
         {

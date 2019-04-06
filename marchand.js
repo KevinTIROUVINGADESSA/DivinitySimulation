@@ -2,26 +2,18 @@
 class Marchand {
 
 
-    constructor(stack_corn,stack_gold,nbrecorn,nbregold)
+    constructor(stack_corn,stack_gold)
     {
         this.max_corn = stack_corn;
         this.max_gold = stack_gold;
-
-        if(nbrecorn>stack_corn)
-            this.actual_corn = stack_corn;
-        else if(nbregold>stack_gold)
-            this.actual_gold = stack_gold;
-        else {
-            this.actual_gold = nbregold;
-            this.actual_corn = nbrecorn;
-        }
-
+        this.actual_gold = Math.floor(Math.random()*stack_gold);
+        this.actual_corn = Math.floor(Math.random()*stack_corn);
     }
 
 
     Decrire()
     {
-        console.log(`Votre marchand a ${this.actual_gold} golds et ${this.actual_corn} corns, il peut porter ${this.max_corn} corns ${this.max_gold} golds`);
+        console.log(`Votre marchand a ${this.actual_gold} golds et ${this.actual_corn} corns, il peut porter ${this.max_gold} gold ${this.max_corn} corn`);
     }
 
     Echange_gold_to_corn(m,nbregold)
