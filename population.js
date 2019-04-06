@@ -3,14 +3,13 @@ const {Marchand} = require('./marchand');
 
 class Population {
 
-    guerriers;
-    marchands;
-    peons;
-
     constructor(nbPeon, nbMarchand, nbGuerrier) {
         this.nbPeon = Math.floor(nbPeon);
         this.nbMarchand = Math.floor(nbMarchand);
         this.nbGuerrier = Math.floor(nbGuerrier);
+        this.guerriers = [];
+        this.marchands = [];
+        this.peons = [];
         this.init();
     }
 
