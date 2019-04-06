@@ -37,6 +37,8 @@ class City {
         return this.corn_;
     }
 
+
+
     showShit() {
         console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity:${this.divinity_.name}`);
         console.log(`${this.population_.showPop()}`)
