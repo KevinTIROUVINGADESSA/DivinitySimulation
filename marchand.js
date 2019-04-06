@@ -2,12 +2,12 @@
 class Marchand {
 
 
-    constructor(stack_corn,stack_gold)
+    constructor(actual_corn,actual_gold)
     {
-        this.max_corn = stack_corn;
-        this.max_gold = stack_gold;
-        this.actual_gold = Math.floor(Math.random()*stack_gold);
-        this.actual_corn = Math.floor(Math.random()*stack_corn);
+        this.max_corn = actual_corn +100;
+        this.max_gold = actual_gold +100;
+        this.actual_gold = actual_gold;
+        this.actual_corn = actual_corn;
     }
 
 
@@ -16,29 +16,31 @@ class Marchand {
         console.log(`Votre marchand a ${this.actual_gold} golds et ${this.actual_corn} corns, il peut porter ${this.max_gold} gold ${this.max_corn} corn`);
     }
 
-    Echange_gold_to_corn(m,nbregold)
+    Echange_gold_for_corn(m)
     {
-        let corn_for_exchange = 2*nbregold;
+        let gold_for_exchange = Math.floor(Math.random()*this.actual_gold);
+        let corn_for_exchange = 2*gold_for_exchange;
         if(this.actual_corn + corn_for_exchange > this.max_corn)
         {
             console.log("Votre marchand ne peut pas porter autant de corn");
         }
-        else if (this.actual_gold-nbregold<0)
+        else if (this.actual_gold-gold_for_exchange<0)
         {
             console.log("TA PA DARGENT CLOCHARD");
         }
         else
         {
-            this.actual_gold = this.actual_gold - nbregold;
+            this.actual_gold = this.actual_gold - gold_for_exchange;
             this.actual_corn = this.actual_corn + corn_for_exchange;
             m.actual_corn = m.actual_corn - corn_for_exchange;
-            m.actual_gold = m.actual_gold + nbregold;
+            m.actual_gold = m.actual_gold + gold_for_exchange;
         }
     }
 
-    Echange_corn_to_gold(m,nbrecorn)
+    Echange_corn_for_gold(m)
     {
-        let gold_for_exchange = (1/2)*nbrecorn;
+        let corn_for_exchange = Math.floor(Math.random()*this.actual_corn);
+        let gold_for_exchange = (1/2)*corn_for_exchange;
         if(this.actual_gold + gold_for_exchange > this.max_gold)
         {
             console.log("Votre marchand ne peut pas porter autant de gold")
@@ -49,9 +51,9 @@ class Marchand {
         }
         else
         {
-            this.actual_corn = this.actual_corn - nbrecorn;
+            this.actual_corn = this.actual_corn - corn_for_exchange;
             this.actual_gold = this.actual_gold + gold_for_exchange;
-            m.actual_corn =  m.actual_corn + nbrecorn;
+            m.actual_corn =  m.actual_corn + corn_for_exchange;
             m.actual_gold =  m.actual_gold - gold_for_exchange ;
         }
     }
