@@ -40,14 +40,14 @@ class Guerrier {
         if (Math.random() < 0.1)
         {
             this.force = 98;
-            console.log(`Votre soldat est qlq'un broie du noir, son atk est reduite ${this.force}`);
+            console.log(`Votre soldat a trouve l arme secrete ! Waouuuuuh ! Tema comment il est fort : ${this.force}`);
         }
         g.recevoirDegats(this.force);
     }
 
     recevoirDegats(degats)
     {
-
+        console.log(`Votre soldat a pris une grosse tatane, sa vie est passe de ${this.pv} a ${this.pv - degats}`);
         this.pv -= degats;
 
         if(this.pv<0)

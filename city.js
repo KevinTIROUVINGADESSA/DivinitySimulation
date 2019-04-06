@@ -42,16 +42,20 @@ class City {
             this.population.nbGuerrier;
         if (Math.random() <= 0.4999)
         {
-            /*for (let i = 0; i < max; i++)
+            for (let i = 0; i < max; i++)
             {
-                this.population.guerriers[i]. (C2.population.marchands[i]);
-            }*/
+                this.population.guerriers[i].Attack(C2.population.guerriers[i]);
+                if (!C2.population.guerriers[i].estVivant())
+                    C2.population.guerriers.remove(i);
+            }
         }
         else
         {
             for (let i = 0; i < max; i++)
             {
-                this.population.marchands[i].Echange_corn_for_gold(C2.population.marchands[i]);
+                C2.population.guerriers[i].Attack(this.population.guerriers[i]);
+                if (!this.population.guerriers[i].estVivant())
+                    this.population.guerriers.remove(i);
             }
         }
     }

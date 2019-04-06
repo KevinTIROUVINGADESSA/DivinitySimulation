@@ -14,6 +14,6 @@ for (let i = 0; i < villes.length; i++)
     villes[i].showShit();
     var now = new Date().getTime();
     while(new Date().getTime() < now + 5000) { }
-    if (i == 1)
+    if (i == 0)
         villes[i].trade(villes[i+1]);
 }
