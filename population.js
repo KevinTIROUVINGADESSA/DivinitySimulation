@@ -36,14 +36,14 @@ class Population {
         console.log(`Nombre de marchands : ${this.nbMarchand}`);
         for (let i = 0; i < this.nbMarchand; i++)
         {
-            console.log(`${this.marchands[i].Decrire()}`);
+            this.marchands[i].Decrire();
             var now = new Date().getTime();
             while(new Date().getTime() < now + 500) { }
         }
         console.log(`Nombre de guerriers : ${this.nbGuerrier}`);
         for (let i = 0; i < this.nbGuerrier; i++)
         {
-            console.log(`${this.guerriers[i].Decrire()}`);
+            this.guerriers[i].Decrire();
             var now = new Date().getTime();
             while(new Date().getTime() < now + 500) { }
         }
