@@ -58,5 +58,16 @@ class Marchand {
         }
     }
 
+    get corn()
+    {
+        return this.actual_corn;
+    }
+
+    get gold()
+    {
+        return this.actual_gold;
+    }
+
+
 }
 module.exports = {Marchand};
