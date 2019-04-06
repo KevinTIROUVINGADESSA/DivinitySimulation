@@ -45,7 +45,7 @@ class Marchand {
         {
             console.log("Votre marchand ne peut pas porter autant de gold")
         }
-        else if (this.actual_corn-nbrecorn<0)
+        else if (this.actual_corn-corn_for_exchange<0)
         {
             console.log("PAS ASSEZ DE CORN");
         }
