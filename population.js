@@ -6,7 +6,7 @@ class Population {
     constructor(nbPeon, nbMarchand, nbGuerrier) {
         this.nbPeon = 2; /*Math.floor(nbPeon);*/
         this.nbMarchand = 3; /* Math.floor(nbMarchand); */
-        this.nbGuerrier = 3 ;/*Math.floor(nbGuerrier);*/
+        this.nbGuerrier = 3;/*Math.floor(nbGuerrier);*/
         this.guerriers = [];
         this.marchands = [];
         /*this.peons = [];*/
@@ -21,7 +21,7 @@ class Population {
         }
         for (let i = 0; i < this.nbMarchand; i++)
         {
-            this.marchands[i] = new Marchand(Math.floor(Math.random()*50), Math.floor(Math.random()*50));
+            this.marchands[i] = new Marchand(Math.floor(1000/this.nbMarchand), Math.floor(1000/this.nbMarchand));
         }
         /*for (var i = 0; i < this.nbPeon; i++)
         {

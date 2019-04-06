@@ -37,7 +37,24 @@ class City {
         return this.corn_;
     }
 
-
+    trade(C2) {
+        let max = (this.population_.nbMarchand > C2.population_.nbMarchand) ? C2.population_.nbMarchand :
+            this.population_.nbMarchand;
+        if (Math.random() <= 0.4999)
+        {
+            for (let i = 0; i < max; i++)
+            {
+                this.population_.marchands[i].Echange_corn_to_gold(C2.population_.marchands[i])
+            }
+        }
+        else
+        {
+            for (let i = 0; i < max; i++)
+            {
+                this.population_.marchands[i].Echange_corn_to_gold(C2.population_.marchands[i])
+            }
+        }
+    }
 
     showShit() {
         console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity:${this.divinity_.name}`);
