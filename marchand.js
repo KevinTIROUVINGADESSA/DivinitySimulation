@@ -6,8 +6,16 @@ class Marchand {
     {
         this.max_corn = stack_corn;
         this.max_gold = stack_gold;
-        this.actual_gold = nbregold;
-        this.actual_corn = nbrecorn;
+
+        if(nbrecorn>stack_corn)
+            this.actual_corn = stack_corn;
+        else if(nbregold>stack_gold)
+            this.actual_gold = stack_gold;
+        else {
+            this.actual_gold = nbregold;
+            this.actual_corn = nbrecorn;
+        }
+
     }
 
 
