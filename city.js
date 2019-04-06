@@ -4,7 +4,7 @@ const {Population} = require('./population');
 class City {
     constructor(name, divinityName) {
         this.name_ = name || 'UNKCITY';
-        this.divinity_ = new Divinity(divinityName);
+        this.divinity = new Divinity(divinityName);
         this.population = new Population(Math.random() * 200, Math.random() * 200, Math.random() * 200);
         this.corn_ = 1000;
         this.gold_ = 1000;
@@ -12,9 +12,9 @@ class City {
     }
 
     init() {
-        this.divinity_.init();
-        this.divinity_.worldEvents.on('favor', shit => this.getShit(shit));
-        this.divinity_.worldEvents.on('blessing', shit => this.getShit(shit));
+        this.divinity.init();
+        this.divinity.worldEvents.on('favor', shit => this.getShit(shit));
+        this.divinity.worldEvents.on('blessing', shit => this.getShit(shit));
     }
 
     getShit(s) {
@@ -23,8 +23,8 @@ class City {
     }
 
     giveShit() {
-        this.divinity_.offeringCorn(this.corn_);
-        this.divinity_.offeringGold(this.gold_);
+        this.divinity.offeringCorn(this.corn_);
+        this.divinity.offeringGold(this.gold_);
         this.corn_ = 0;
         this.gold_ = 0;
     }
@@ -35,6 +35,25 @@ class City {
 
     get gold() {
         return this.corn_;
+    }
+
+    fight(C2) {
+        let max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
+            this.population.nbGuerrier;
+        if (Math.random() <= 0.4999)
+        {
+            /*for (let i = 0; i < max; i++)
+            {
+                this.population.guerriers[i]. (C2.population.marchands[i]);
+            }*/
+        }
+        else
+        {
+            for (let i = 0; i < max; i++)
+            {
+                this.population.marchands[i].Echange_corn_for_gold(C2.population.marchands[i]);
+            }
+        }
     }
 
     trade(C2) {
@@ -57,7 +76,7 @@ class City {
     }
 
     showShit() {
-        console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity:${this.divinity_.name}`);
+        console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity:${this.divinity.name}`);
         this.population.showPop();
     }
 }
