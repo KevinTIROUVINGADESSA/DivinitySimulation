@@ -7,9 +7,11 @@ c = new City('Cunnilingi', 'Fouff');
 a = new City('Analum', 'Trou');
 b = new City('Bobilae', 'Nene');
 g = new City('Extraterum', 'ET');
-var villes = [f,c,a,b,g];
+let villes = [f, c];
 
-for (var i = 0; i < villes.length; i++)
+for (let i = 0; i < villes.length; i++)
 {
-    villes[i].showShit()
+    villes[i].showShit();
+    var now = new Date().getTime();
+    while(new Date().getTime() < now + 5000) { }
 }

@@ -4,25 +4,25 @@ const {Marchand} = require('./marchand');
 class Population {
 
     constructor(nbPeon, nbMarchand, nbGuerrier) {
-        this.nbPeon = Math.floor(nbPeon);
-        this.nbMarchand = Math.floor(nbMarchand);
-        this.nbGuerrier = Math.floor(nbGuerrier);
+        this.nbPeon = 2; /*Math.floor(nbPeon);*/
+        this.nbMarchand = 3; /* Math.floor(nbMarchand); */
+        this.nbGuerrier = 3 ;/*Math.floor(nbGuerrier);*/
         this.guerriers = [];
         this.marchands = [];
-        this.peons = [];
+        /*this.peons = [];*/
         this.init();
     }
 
     init() {
-        for (var i = 0; i < this.nbGuerrier; i++)
+        for (let i = 0; i < this.nbGuerrier; i++)
         {
-            this.guerriers[i] = new Guerrier(Math.random()*100, Math.random()*100,
-                Math.random()*100, Math.random()*2)
+            this.guerriers[i] = new Guerrier(Math.floor(Math.random()*50), Math.floor(Math.random()*50),
+                Math.floor(Math.random()*50), Math.floor(Math.random()*50));
         }
-        for (var i = 0; i < this.nbMarchand; i++)
+        for (let i = 0; i < this.nbMarchand; i++)
         {
-            this.marchands[i] = new Marchand(Math.random()*100, Math.random()*100,
-                Math.random()*100, Math.random()*100);
+            this.marchands[i] = new Marchand(Math.floor(Math.random()*50), Math.floor(Math.random()*50),
+                Math.floor(Math.random()*50), Math.floor(Math.random()*50))
         }
         /*for (var i = 0; i < this.nbPeon; i++)
         {
@@ -35,14 +35,18 @@ class Population {
     showPop() {
         console.log("La population est constituee de :");
         console.log(`Nombre de marchands : ${this.nbMarchand}`);
-        for (var i = 0; i < this.nbMarchand; i++)
+        for (let i = 0; i < this.nbMarchand; i++)
         {
             console.log(`${this.marchands[i].Decrire()}`);
+            var now = new Date().getTime();
+            while(new Date().getTime() < now + 500) { }
         }
         console.log(`Nombre de guerriers : ${this.nbGuerrier}`);
-        for (var i = 0; i < this.nbGuerrier; i++)
+        for (let i = 0; i < this.nbGuerrier; i++)
         {
             console.log(`${this.guerriers[i].Decrire()}`);
+            var now = new Date().getTime();
+            while(new Date().getTime() < now + 500) { }
         }
         console.log(`Nombre de peons : ${this.nbPeon}`);
         /*for (var i = 0; i < this.nbPeon; i++)
