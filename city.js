@@ -5,7 +5,7 @@ class City {
     constructor(name, divinityName) {
         this.name_ = name || 'UNKCITY';
         this.divinity_ = new Divinity(divinityName);
-        this.population_ = new Population(Math.random() * 200, Math.random() * 200, Math.random() * 200);
+        this.population = new Population(Math.random() * 200, Math.random() * 200, Math.random() * 200);
         this.corn_ = 1000;
         this.gold_ = 1000;
         this.init();
@@ -38,27 +38,27 @@ class City {
     }
 
     trade(C2) {
-        let max = (this.population_.nbMarchand > C2.population_.nbMarchand) ? C2.population_.nbMarchand :
-            this.population_.nbMarchand;
+        let max = (this.population.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
+            this.population.nbMarchand;
         if (Math.random() <= 0.4999)
         {
             for (let i = 0; i < max; i++)
             {
-                this.population_.marchands[i].Echange_corn_to_gold(C2.population_.marchands[i])
+                this.population.marchands[i].Echange_gold_for_corn(C2.population.marchands[i]);
             }
         }
         else
         {
             for (let i = 0; i < max; i++)
             {
-                this.population_.marchands[i].Echange_corn_to_gold(C2.population_.marchands[i])
+                this.population.marchands[i].Echange_corn_for_gold(C2.population.marchands[i]);
             }
         }
     }
 
     showShit() {
         console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity:${this.divinity_.name}`);
-        this.population_.showPop();
+        this.population.showPop();
     }
 }
 
