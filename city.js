@@ -40,6 +40,7 @@ class City {
     let i;
     let winThis = 0;
     let winOther = 0;
+    let now;
     if (Math.random() <= 0.4999) {
       for (i = 0; i < max; i++) {
         this.population_.guerriers_[i].attack(C2.population.guerriers[i]);
@@ -51,7 +52,6 @@ class City {
             this.population_.nbGuerrier_ > C2.population.nbGuerrier
               ? C2.population.nbGuerrier
               : this.population_.nbGuerrier_;
-          console.log(max);
           winOther++;
         }
 
@@ -60,10 +60,11 @@ class City {
           C2.population.guerriers[i].pv = 1;
           winThis++;
         }
+        now = new Date().getTime();
+        while (new Date().getTime() < now + 500) {}
       }
     } else {
       for (i = 0; i < max; i++) {
-        console.log(i);
         C2.population.guerriers[i].attack(this.population_.guerriers_[i]);
         if (!C2.population.guerriers[i].estVivant()) {
           console.log('Che ton soldat est mort comme une merde');
@@ -73,7 +74,6 @@ class City {
             this.population_.nbGuerrier_ > C2.population.nbGuerrier
               ? C2.population.nbGuerrier
               : this.population_.nbGuerrier_;
-          console.log(max);
           winThis++;
         }
 
@@ -82,6 +82,8 @@ class City {
           this.population_.guerriers_[i].pv = 1;
           winOther++;
         }
+        now = new Date().getTime();
+        while (new Date().getTime() < now + 500) {}
       }
     }
 
@@ -93,10 +95,10 @@ class City {
           C2.name +
           ' !'
       );
-      this.gold_ += C2.gold / 2;
-      this.corn_ += C2.corn / 2;
-      C2.gold /= 2;
-      C2.corn /= 2;
+      Math.floor(this.gold_ += C2.gold / 2);
+      Math.floor(this.corn_ += C2.corn / 2);
+      Math.floor(C2.gold /= 2);
+      Math.floor(C2.corn /= 2);
     } else if (winThis === winOther) {
       console.log('MAAAAAAAAAAAAAAAAAAAATCH NUL ! DMG IL VA RIEN SE PASSER !');
     } else {
@@ -107,10 +109,10 @@ class City {
           this.name_ +
           ' !'
       );
-      C2.gold += this.gold_ / 2;
-      C2.corn += this.corn_ / 2;
-      this.gold_ /= 2;
-      this.corn_ /= 2;
+      Math.floor(C2.gold += this.gold_ / 2);
+      Math.floor(C2.corn += this.corn_ / 2);
+      Math.floor(this.gold_ /= 2);
+      Math.floor(this.corn_ /= 2);
     }
   }
 
@@ -133,6 +135,7 @@ class City {
         ? C2.population.nbMarchand
         : this.population_.nbMarchand_;
     let i;
+    let now;
     if (Math.random() <= 0.4999) {
       for (i = 0; i < max; i++) {
         if (Math.random() < 0.08) {
@@ -157,6 +160,8 @@ class City {
             this.population_.marchands_[i].actualCorn_ / 2
           );
         }
+        now = new Date().getTime();
+        while (new Date().getTime() < now + 500) {}
       }
     } else {
       for (i = 0; i < max; i++) {
@@ -182,6 +187,8 @@ class City {
             this.population_.marchands_[i].actualCorn / 2
           );
         }
+        now = new Date().getTime();
+        while (new Date().getTime() < now + 500) {}
       }
     }
   }
@@ -197,14 +204,14 @@ class City {
       rez += this.population_.marchands_[i].prix;
     }
 
-    this.corn_ = this.corn_ - rez * 2 > 0 ? this.corn_ - rez * 2 : 0;
-    this.gold_ = this.gold_ - rez > 0 ? this.corn_ - rez : 0;
+    this.corn_ = this.corn_ - rez * 2 > 0 ? Math.floor(this.corn_ - rez * 2) : 0;
+    this.gold_ = this.gold_ - rez > 0 ? Math.floor(this.corn_ - rez) : 0;
   }
 
   showShit() {
     console.log(
-      `City: ${this.name_}, Corn ${this.corn_}, Gold: ${
-        this.gold_
+      `City: ${this.name_}, Corn ${Math.floor(this.corn_)}, Gold: ${
+        Math.floor(this.gold_)
       }, Divinity: ${this.divinity.name}`
     );
     this.population_.showPop();
