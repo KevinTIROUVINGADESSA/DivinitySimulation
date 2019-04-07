@@ -66,28 +66,30 @@ for (let i = 0; i < cities.length; i++) {
 }
 
 let j = 0;
-let condition = 1;
+let condition = true;
 
 while (condition) {
+    now = new Date().getTime();
+    while (new Date().getTime() < now + 500) {}
     j++;
     console.log('---------- DAY ' + j + "----------");
+    console.log(cities.length);
     for (let i = 0; i < cities.length; i++) {
 
         gameOn(cities,i);
 
         if(!cities[i].isAlive()) {
             console.log("Unfortunately the city " + cities[i].name + " is not with us anymore...");
-            cities.splice(i);
-            break;
+            cities.splice(i,i);
         }
         now = new Date().getTime();
         while (new Date().getTime() < now + 500) {}
     }
 
     if(cities.length === 1) {
-        console.log("The game is oveeeeer, city " + cities[0].name + "WON !");
+        console.log("The game is oveeeeer, city " + cities[0].name + " WON !");
         console.log("Here are the stats : ");
         cities[0].showShit();
-        condition = 0;
+        condition = false;
     }
 }
