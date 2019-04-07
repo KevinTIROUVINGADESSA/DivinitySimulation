@@ -116,8 +116,8 @@ class City {
 
   isAlive() {
     if (
-      this.corn_ === 0 ||
-      this.gold_ === 0 ||
+      this.corn_ <= 0 ||
+      this.gold_ <= 0 ||
       this.population_.nbMarchand_ === 0 ||
       this.population_.nbGuerrier_ === 0
     ) {

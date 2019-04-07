@@ -8,7 +8,7 @@ class Guerrier {
     this.moral_ = Math.round(moral * 100) / 100;
   }
 
-  Decrire() {
+  decrire() {
     console.log(
       'Votre soldats a ' +
         this.age_ +
@@ -22,7 +22,7 @@ class Guerrier {
     );
   }
 
-  Attack(g) {
+  attack(g) {
     switch (true) {
       case this.age_ <= 9 || this.age_ >= 80:
         this.force_ =
