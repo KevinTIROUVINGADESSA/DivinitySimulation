@@ -12,15 +12,15 @@ b = new City('Bobilae', 'Nene');
 g = new City('Branleum', 'Mano');
 let cities = [f, c, a, b, g];
 
-const setUp = async (city,i) =>{
+const setUp = (city,i) =>{
     city[i].showShit();
     city[i].init();
-    city[i].getShit(city[i].divinity);
 };
 
-const gameOn = async (city,i) =>{
-    setUp(city[i],i);
-
+const gameOn = (city,i) =>{
+//   setUp(city[i],i);
+    console.log('The day start in ' + city[i].name);
+    city[i].showShit();
     if(Math.random() <= 0.2) {
         console.log("The divinity " + city[i].divinity.name + " have been grateful today !");
         city[i].getShit(city[i].divinity);
@@ -29,20 +29,20 @@ const gameOn = async (city,i) =>{
     let whatToDoToday = Math.random();
 
     if(whatToDoToday <= 0.3){
-        let whichCity = Math.floor((Math.random()*5));
+        let whichCity = Math.floor((Math.random()*city.length ));
 
         while(whichCity === i){
-            whichCity = Math.floor((Math.random()*5))
+            whichCity = Math.floor((Math.random()*city.length))
         }
 
         console.log('Today we will attack ' + city[whichCity].name);
         city[i].fight(city[whichCity]);
     }
     else if(whatToDoToday <= 0.6 && whatToDoToday >= 0.31){
-        let whichCity = Math.floor((Math.random()*5));
+        let whichCity = Math.floor((Math.random()*city.length));
 
         while(whichCity === i){
-            whichCity = Math.floor((Math.random()*5))
+            whichCity = Math.floor((Math.random()*city.length))
         }
 
         console.log('Today we will trade with  ' + city[whichCity].name);
@@ -62,9 +62,9 @@ const gameOn = async (city,i) =>{
 };
 
 for (let i = 0; i < cities.length; i++) {
-    setUp(cities[i],i);
+    setUp(cities,i);
 }
 
 for (let i = 0; i < cities.length; i++) {
-    gameOn(cities[i],i);
+    gameOn(cities,i);
 }
