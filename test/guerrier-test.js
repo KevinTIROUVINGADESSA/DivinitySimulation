@@ -26,14 +26,21 @@ describe('Guerrier.js.js', () => {
             guerrier2.pv.should.be.equal(10);
         });
 
-        it('Warrior2\'s hp should get moral*(attack - 20)', () =>{
-            let guerrier1 = new Guerrier(50,50,50,1);
+        it('Warrior2\'s hp should get moral*(attack - 20) because his age is <15 or >60', () =>{
+            let guerrier1 = new Guerrier(60,50,50,1);
             let guerrier2 = new Guerrier(50,50,60,50);
 
             guerrier1.Attack(guerrier2);
-            guerrier2.pv.should.be.equal(10);
+            guerrier2.pv.should.be.equal(30);
         });
 
+        it('Warrior2\'s hp should get moral*(attack - 30) because his age is <15 or >60', () =>{
+            let guerrier1 = new Guerrier(80,50,50,1);
+            let guerrier2 = new Guerrier(50,50,60,50);
+
+            guerrier1.Attack(guerrier2);
+            guerrier2.pv.should.be.equal(40);
+        });
 
 
     });
