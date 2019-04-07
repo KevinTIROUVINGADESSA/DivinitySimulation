@@ -73,7 +73,7 @@ while (condition) {
     while (new Date().getTime() < now + 500) {}
     j++;
     console.log('---------- DAY ' + j + "----------");
-    console.log(cities.length);
+    console.log("Remaining cities : " + cities.length);
     for (let i = 0; i < cities.length; i++) {
 
         gameOn(cities,i);
@@ -87,6 +87,7 @@ while (condition) {
     }
 
     if(cities.length === 1) {
+        console.log(*)
         console.log("The game is oveeeeer, city " + cities[0].name + " WON !");
         console.log("Here are the stats : ");
         cities[0].showShit();
