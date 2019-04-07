@@ -53,7 +53,7 @@ const gameOn = (city,i) => {
     }
 
 
-    city[i].coutTroupes();
+    city[i].countTroupes();
 
     if (Math.random() <= 0.5) {
         console.log("The divinity " + city[i].divinity.name + " wants offrands !!!");
