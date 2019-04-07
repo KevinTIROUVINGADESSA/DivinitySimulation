@@ -30,20 +30,20 @@ class City {
     }
 
     fight(C2) {
-        let max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
-            this.population.nbGuerrier;
+        let max = (this.population_.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
+            this.population_.nbGuerrier;
         let i;
         let winThis = 0, winOther = 0;
         if (Math.random() <= 0.4999)
         {
             for (i = 0; i < max; i++) {
-                this.population.guerriers[i].Attack(C2.population.guerriers[i]);
-                if (!this.population.guerriers[i].estVivant()) {
+                this.population_.guerriers[i].Attack(C2.population.guerriers[i]);
+                if (!this.population_.guerriers[i].estVivant()) {
                     console.log("Che ton soldat est mort comme une merde");
-                    this.population.nbGuerrier -= 1;
-                    this.population.guerriers.splice(i);
-                    max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
-                        this.population.nbGuerrier;
+                    this.population_.nbGuerrier -= 1;
+                    this.population_.guerriers.splice(i);
+                    max = (this.population_.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
+                        this.population_.nbGuerrier;
                     console.log(max);
                     winOther ++;
                 }
@@ -59,28 +59,28 @@ class City {
             for (i = 0; i < max; i++)
             {
                 console.log(i);
-                C2.population.guerriers[i].Attack(this.population.guerriers[i]);
+                C2.population.guerriers[i].Attack(this.population_.guerriers[i]);
                 if (!C2.population.guerriers[i].estVivant()) {
                     console.log("Che ton soldat est mort comme une merde");
                     C2.population.nbGuerrier -= 1;
-                    this.corn += C2.population.guerriers;
+                    this.corn_ += C2.population.guerriers;
                     C2.population.guerriers.splice(i);
-                    max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
-                        this.population.nbGuerrier;
+                    max = (this.population_.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
+                        this.population_.nbGuerrier;
                     console.log(max);
                     winThis ++;
                 }
-                if(!this.population.guerriers[i].estVivant()) {
+                if(!this.population_.guerriers[i].estVivant()) {
                     console.log("Votre guerrier a ete sauve par " + this.divinity.name);
-                    this.population.guerriers[i].pv = 1;
+                    this.population_.guerriers[i].pv = 1;
                     winOther ++;
                 }
             }
         }
         if (winThis > winOther) {
             console.log("City: " + this.name_ + " is the winner WoooohWoooh ! DaTaGueule " + C2.name + " !");
-            this.gold += C2.gold / 2;
-            this.corn += C2.corn / 2;
+            this.gold_ += C2.gold / 2;
+            this.corn_ += C2.corn / 2;
             C2.gold /= 2;
             C2.corn /= 2;
         }
@@ -98,23 +98,23 @@ class City {
     }
 
     trade(C2) {
-        let max = (this.population.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
-            this.population.nbMarchand;
+        let max = (this.population_.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
+            this.population_.nbMarchand;
         let i;
         if (Math.random() <= 0.4999) {
             for (i = 0; i < max; i++) {
                 if (Math.random()<0.08) {
                     console.log("Votre marchand marchand a ete attaque par de vilains, super pas gentils brigands"
                         + "(Pas d echange il est die mamene)!");
-                    this.population.nbMarchand -= 1;
-                    this.population.marchands[i].splice(i);
-                    max = (this.population.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
-                        this.population.nbMarchand;
+                    this.population_.nbMarchand -= 1;
+                    this.population_.marchands[i].splice(i);
+                    max = (this.population_.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
+                        this.population_.nbMarchand;
                 }
                 else {
-                    this.population.marchands[i].Echange_gold_for_corn(C2.population.marchands[i]);
-                    this.gold_ = this.population.marchands[i].actual_gold / 2;
-                    this.corn_ = this.population.marchands[i].actual_corn / 2;
+                    this.population_.marchands[i].Echange_gold_for_corn(C2.population.marchands[i]);
+                    this.gold_ = this.population_.marchands[i].actual_gold / 2;
+                    this.corn_ = this.population_.marchands[i].actual_corn / 2;
                 }
             }
         }
@@ -124,14 +124,14 @@ class City {
                     console.log("Votre marchand marchand a ete attaque par de vilains, super pas gentils brigands"
                         + "(Pas d echange il est die mamene)!");
                     C2.population.nbMarchand -= 1;
-                    this.population.marchands[i].splice(i);
-                    max = (this.population.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
-                        this.population.nbMarchand;
+                    this.population_.marchands[i].splice(i);
+                    max = (this.population_.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
+                        this.population_.nbMarchand;
                 }
                 else {
-                    this.population.marchands[i].Echange_corn_for_gold(C2.population.marchands[i]);
-                    this.gold_ = this.population.marchands[i].actual_gold / 2;
-                    this.corn_ = this.population.marchands[i].actual_corn / 2;
+                    this.population_.marchands[i].Echange_corn_for_gold(C2.population.marchands[i]);
+                    this.gold_ = this.population_.marchands[i].actual_gold / 2;
+                    this.corn_ = this.population_.marchands[i].actual_corn / 2;
                 }
             }
         }
@@ -139,19 +139,21 @@ class City {
 
     cout_troupes() {
         let i, rez = 0;
-        for (i = 0; i < this.population.nbGuerrier; i++) {
-            rez += this.population.guerriers[i].prix;
+        for (i = 0; i < this.population_.nbGuerrier; i++) {
+            rez += this.population_.guerriers[i].prix;
         }
-        for (i = 0; i < this.population.nbMarchand; i++) {
-            rez += this.population.marchands[i].prix;
+        for (i = 0; i < this.population_.nbMarchand; i++) {
+            rez += this.population_.marchands[i].prix;
         }
-        this.corn_ = (this.corn - rez*2 > 0) ? (this.corn - rez*2) : 0;
-        this.gold_ = (this.gold - rez > 0) ? (this.corn - rez) : 0;
+        this.corn_ = (this.corn_ - rez*2 > 0) ? (this.corn_ - rez*2) : 0;
+        this.gold_ = (this.gold_ - rez > 0) ? (this.corn_ - rez) : 0;
         if (this.corn_ == 0 || this.gold_ == 0) {
-            this.population.destroy();
+            delete this.population_;
         }
 
     }
+
+
 
     showShit() {
         console.log(`City: ${this.name_}, Corn ${this.corn_}, Gold: ${this.gold_}, Divinity: ${this.divinity.name}`);
