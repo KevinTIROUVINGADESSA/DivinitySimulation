@@ -3,7 +3,7 @@ const {Population} = require('./population');
 
 class City {
     constructor(name, divinityName) {
-        this.name_ = name || 'UNKCITY';
+        this.name = name || 'UNKCITY';
         this.divinity = new Divinity(divinityName);
         this.population = new Population(Math.random() * 200, Math.random() * 200);
         this.corn = 1000;
@@ -41,6 +41,7 @@ class City {
         let max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
             this.population.nbGuerrier;
         let i;
+        let winThis = 0, winOther = 0;
         if (Math.random() <= 0.4999)
         {
             for (i = 0; i < max; i++) {
@@ -51,10 +52,13 @@ class City {
                     this.population.guerriers.splice(i);
                     max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
                         this.population.nbGuerrier;
+                    console.log(max);
+                    winOther ++;
                 }
                 if (!C2.population.guerriers[i].estVivant()) {
                     console.log("Votre guerrier a ete sauve par " + C2.divinity.name)
                     C2.population.guerriers[i].pv = 1;
+                    winThis ++;
                 }
             }
         }
@@ -67,17 +71,39 @@ class City {
                 if (!C2.population.guerriers[i].estVivant()) {
                     console.log("Che ton soldat est mort comme une merde");
                     C2.population.nbGuerrier -= 1;
-                    this.corn += C2.population.guerriers
+                    this.corn += C2.population.guerriers;
                     C2.population.guerriers.splice(i);
                     max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
                         this.population.nbGuerrier;
+                    console.log(max);
+                    winThis ++;
                 }
                 if(!this.population.guerriers[i].estVivant()) {
                     console.log("Votre guerrier a ete sauve par " + this.divinity.name);
                     this.population.guerriers[i].pv = 1;
+                    winOther ++;
                 }
             }
         }
+        if (winThis > winOther)
+        {
+            console.log("City: " + this.name + " is the winner WoooohWoooh ! DaTaGueule " + C2.name + " !");
+            this.gold += C2.gold / 2;
+            this.corn += C2.corn / 2;
+            C2.gold /= 2;
+            C2.corn /= 2;
+        }
+        else if (winThis === winOther) {
+            console.log("MAAAAAAAAAAAAAAAAAAAATCH NUL ! DMG IL VA RIEN SE PASSER !");
+        }
+        else {
+            console.log("City: " + C2.name + " is the winner WoooohWoooh ! DaTaGueule " + this.name + " !");
+            C2.gold += this.gold / 2;
+            C2.corn += this.corn / 2;
+            this.gold /= 2;
+            this.corn /= 2;
+        }
+
     }
 
     trade(C2) {
