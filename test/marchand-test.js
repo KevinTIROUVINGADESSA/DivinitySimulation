@@ -11,16 +11,16 @@ describe('Marchand.js', () => {
         let marchandTest2 = new Marchand(200,200);
 
         it('gold exchange', () => {
-            marchandTest1.Echange_corn_for_gold(marchandTest2);
-            marchandTest1.gold.should.be.above(marchandTest1.corn);
+            marchandTest1.echangeCornForGold(marchandTest2);
+            marchandTest1.actualGold.should.be.above(marchandTest1.actualCorn);
 
-            marchandTest1.gold.should.be.equal((marchandTest2.corn - 200)/2 + 200);
-            marchandTest2.corn.should.be.above(marchandTest2.gold);
+            marchandTest1.actualGold.should.be.equal((marchandTest2.actualCorn - 200)/2 + 200);
+            marchandTest2.actualCorn.should.be.above(marchandTest2.actualGold);
         });
 
         it('corn exchange ', () => {
-            marchandTest1.Echange_gold_for_corn(marchandTest2);
-            marchandTest1.gold.should.be.equal((marchandTest2.corn - 200)/2 + 200);
+            marchandTest1.echangeGoldForCorn(marchandTest2);
+            marchandTest1.actualGold.should.be.equal((marchandTest2.actualCorn - 200)/2 + 200);
         });
 
     });

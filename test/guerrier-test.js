@@ -22,7 +22,7 @@ describe('Guerrier.js.js', () => {
             let guerrier1 = new Guerrier(50,50,50,1);
             let guerrier2 = new Guerrier(50,50,60,50);
 
-            guerrier1.Attack(guerrier2);
+            guerrier1.attack(guerrier2);
             guerrier2.pv.should.be.equal(10);
         });
 
@@ -30,7 +30,7 @@ describe('Guerrier.js.js', () => {
             let guerrier1 = new Guerrier(60,50,50,1);
             let guerrier2 = new Guerrier(50,50,60,50);
 
-            guerrier1.Attack(guerrier2);
+            guerrier1.attack(guerrier2);
             guerrier2.pv.should.be.equal(30);
         });
 
@@ -38,7 +38,7 @@ describe('Guerrier.js.js', () => {
             let guerrier1 = new Guerrier(80,50,50,1);
             let guerrier2 = new Guerrier(50,50,60,50);
 
-            guerrier1.Attack(guerrier2);
+            guerrier1.attack(guerrier2);
             guerrier2.pv.should.be.equal(40);
         });
 
