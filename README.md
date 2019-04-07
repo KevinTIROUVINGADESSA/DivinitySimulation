@@ -86,11 +86,6 @@ The initialization of them is made on population.js by Math.random() method
    Same opération for the corns, we deduce the equivalent amount from the second merchant and add it to the first merchant.
    ### echange_corn_for_gold()
    Same as Echange_gold_for_corn() but reverse gold and corn
-   ### get actual_corn()
-   Accessor of corn, get the actual merchant corn
-   
-   ### get actual_gold()
-   Accessor of gold, get the actual merchant gold
    
 ## Population.js
     
@@ -101,3 +96,4 @@ The initialization of them is made on population.js by Math.random() method
    Method to print the actual population of the city, we use a timer to print the value with a certain delay
 
 ## Index.js
+    
