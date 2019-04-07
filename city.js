@@ -3,11 +3,11 @@ const {Population} = require('./population');
 
 class City {
     constructor(name, divinityName) {
-        this.name = name || 'UNKCITY';
-        this.divinity = new Divinity(divinityName);
-        this.population = new Population(Math.random() * 200, Math.random() * 200);
-        this.corn = 1000;
-        this.gold = 1000;
+        this.name_ = name || 'UNKCITY';
+        this.divinity_ = new Divinity(divinityName);
+        this.population_ = new Population(Math.random() * 200, Math.random() * 200);
+        this.corn_ = 1000;
+        this.gold_ = 1000;
         this.init();
     }
 
@@ -28,14 +28,6 @@ class City {
         this.corn_ = 0;
         this.gold_ = 0;
     }
-
-    /*get corn() {
-        return this.gold_;
-    }
-
-    get gold() {
-        return this.corn_;
-    }*/
 
     fight(C2) {
         let max = (this.population.nbGuerrier > C2.population.nbGuerrier) ? C2.population.nbGuerrier :
@@ -86,7 +78,7 @@ class City {
             }
         }
         if (winThis > winOther) {
-            console.log("City: " + this.name + " is the winner WoooohWoooh ! DaTaGueule " + C2.name + " !");
+            console.log("City: " + this.name_ + " is the winner WoooohWoooh ! DaTaGueule " + C2.name + " !");
             this.gold += C2.gold / 2;
             this.corn += C2.corn / 2;
             C2.gold /= 2;
@@ -96,11 +88,11 @@ class City {
             console.log("MAAAAAAAAAAAAAAAAAAAATCH NUL ! DMG IL VA RIEN SE PASSER !");
         }
         else {
-            console.log("City: " + C2.name + " is the winner WoooohWoooh ! DaTaGueule " + this.name + " !");
-            C2.gold += this.gold / 2;
-            C2.corn += this.corn / 2;
-            this.gold /= 2;
-            this.corn /= 2;
+            console.log("City: " + C2.name + " is the winner WoooohWoooh ! DaTaGueule " + this.name_ + " !");
+            C2.gold += this.gold_ / 2;
+            C2.corn += this.corn_ / 2;
+            this.gold_ /= 2;
+            this.corn_ /= 2;
         }
 
     }
@@ -113,7 +105,7 @@ class City {
             for (i = 0; i < max; i++) {
                 if (Math.random()<0.08) {
                     console.log("Votre marchand marchand a ete attaque par de vilains, super pas gentils brigands"
-                    + "(Pas d echange il est die mamene)!");
+                        + "(Pas d echange il est die mamene)!");
                     this.population.nbMarchand -= 1;
                     this.population.marchands[i].splice(i);
                     max = (this.population.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
@@ -121,8 +113,8 @@ class City {
                 }
                 else {
                     this.population.marchands[i].Echange_gold_for_corn(C2.population.marchands[i]);
-                    this.gold = this.population.marchands[i].actual_gold / 2;
-                    this.corn = this.population.marchands[i].actual_corn / 2;
+                    this.gold_ = this.population.marchands[i].actual_gold / 2;
+                    this.corn_ = this.population.marchands[i].actual_corn / 2;
                 }
             }
         }
@@ -138,8 +130,8 @@ class City {
                 }
                 else {
                     this.population.marchands[i].Echange_corn_for_gold(C2.population.marchands[i]);
-                    this.gold = this.population.marchands[i].actual_gold / 2;
-                    this.corn = this.population.marchands[i].actual_corn / 2;
+                    this.gold_ = this.population.marchands[i].actual_gold / 2;
+                    this.corn_ = this.population.marchands[i].actual_corn / 2;
                 }
             }
         }
@@ -153,9 +145,9 @@ class City {
         for (i = 0; i < this.population.nbMarchand; i++) {
             rez += this.population.marchands[i].prix;
         }
-        this.corn = (this.corn - rez*2 > 0) ? (this.corn - rez*2) : 0;
-        this.gold = (this.gold - rez > 0) ? (this.corn - rez) : 0;
-        if (this.corn == 0 || this.gold == 0) {
+        this.corn_ = (this.corn - rez*2 > 0) ? (this.corn - rez*2) : 0;
+        this.gold_ = (this.gold - rez > 0) ? (this.corn - rez) : 0;
+        if (this.corn_ == 0 || this.gold_ == 0) {
             this.population.destroy();
         }
 
@@ -165,6 +157,37 @@ class City {
         console.log(`City: ${this.name_}, Corn ${this.corn_}, Gold: ${this.gold_}, Divinity: ${this.divinity.name}`);
         this.population.showPop();
     }
+
+    get name(){
+        return this.name_;
+    }
+    get divinity(){
+        return this.divinity_;
+    }
+    get population(){
+        return this.population_;
+    }
+    get corn() {
+        return this.gold_;
+    }
+
+    get gold() {
+        return this.corn_;
+    }
+
+    set corn(corn){
+        this.corn_ = corn;
+    }
+
+    set gold(gold){
+        this.corn_ = gold;
+    }
+
+
+
+
+
+
 }
 
 module.exports = {City};
