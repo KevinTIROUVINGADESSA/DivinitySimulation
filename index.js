@@ -53,7 +53,7 @@ const gameOn = (city,i) => {
     }
 
 
-    city[i].cout_troupes();
+    city[i].coutTroupes();
 
     if (Math.random() <= 0.5) {
         console.log("The divinity " + city[i].divinity.name + " wants offrands !!!");
@@ -80,6 +80,8 @@ while (condition) {
             cities.splice(i);
             break;
         }
+        now = new Date().getTime();
+        while (new Date().getTime() < now + 500) {}
     }
 
     if(cities.length === 1) {
