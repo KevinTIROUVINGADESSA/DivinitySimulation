@@ -93,7 +93,7 @@ class Marchand {
 
     set actual_gold(ag)
     {
-        this.actual_gold_ = ac;
+        this.actual_gold_ = ag;
     }
 
     get actual_corn()
