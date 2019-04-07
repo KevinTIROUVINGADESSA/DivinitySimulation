@@ -3,20 +3,25 @@
 Simulation of different cities ruled by divinities through javascript
 
 # Getting Started 
+Clone the project
 ```
+git clone https://github.com/Telsho/DivinitySimulation.git
 ```
 # Prerequisites
 ```
+yarn install
+npm install
 ```
 # Installing
 ```
+npm install chai
+npm install --global xo
 ```
 # Running the test
 ```
+node index.js
 ```
-# Deployment
-```
-```
+
 # Built With
 - nodeJS
 
@@ -81,10 +86,10 @@ The initialization of them is made on population.js by Math.random() method
    Same opération for the corns, we deduce the equivalent amount from the second merchant and add it to the first merchant.
    ### echange_corn_for_gold()
    Same as Echange_gold_for_corn() but reverse gold and corn
-   ### get_corn()
+   ### get actual_corn()
    Accessor of corn, get the actual merchant corn
    
-   ### get_gold()
+   ### get actual_gold()
    Accessor of gold, get the actual merchant gold
    
 ## Population.js
@@ -94,10 +99,5 @@ The initialization of them is made on population.js by Math.random() method
    it set the warriors/merchants by calling the constructor of those class and affecting random values to it
    ### showPop()
    Method to print the actual population of the city, we use a timer to print the value with a certain delay
- //  ### reviveGue()
-   
- //  ### popOver()
 
 ## Index.js
-
-   ### 
