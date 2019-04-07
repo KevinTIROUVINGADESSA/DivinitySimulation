@@ -6,8 +6,8 @@ class City {
     this.name_ = name || 'UNKCITY';
     this.divinity_ = new Divinity(divinityName);
     this.population_ = new Population(
-      Math.floor(Math.random() * 4),
-      Math.floor(Math.random() * 4)
+      Math.floor(1+Math.random() * 4),
+      Math.floor(1+Math.random() * 4)
     );
     this.corn_ = 1000;
     this.gold_ = 1000;
