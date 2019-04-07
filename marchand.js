@@ -96,7 +96,7 @@ class Marchand {
         this.actual_gold_ = ac;
     }
 
-    get actual_corn(ac)
+    get actual_corn()
     {
         return this.actual_corn_;
     }
