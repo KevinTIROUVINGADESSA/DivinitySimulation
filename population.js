@@ -4,37 +4,37 @@ const {Marchand} = require('./marchand');
 class Population {
 
     constructor(nbMarchand, nbGuerrier) {
-        this.nbMarchand = 3; /* Math.floor(nbMarchand); */
-        this.nbGuerrier = 3;/*Math.floor(nbGuerrier);*/
-        this.guerriers = [];
-        this.marchands = [];
+        this.nbMarchand_ = 3; /* Math.floor(nbMarchand); */
+        this.nbGuerrier_ = 3;/*Math.floor(nbGuerrier);*/
+        this.guerriers_ = [];
+        this.marchands_ = [];
         this.init();
     }
 
     init() {
-        for (let i = 0; i < this.nbGuerrier; i++)
+        for (let i = 0; i < this.nbGuerrier_; i++)
         {
-            this.guerriers[i] = new Guerrier(Math.floor(Math.random()*50), Math.floor(Math.random()*50),
+            this.guerriers_[i] = new Guerrier(Math.floor(Math.random()*50), Math.floor(Math.random()*50),
                 Math.floor(Math.random()*50), Math.random());
         }
-        for (let i = 0; i < this.nbMarchand; i++)
+        for (let i = 0; i < this.nbMarchand_; i++)
         {
-            this.marchands[i] = new Marchand(Math.floor(1000/this.nbMarchand), Math.floor(1000/this.nbMarchand));
+            this.marchands_[i] = new Marchand(Math.floor(1000/this.nbMarchand_), Math.floor(1000/this.nbMarchand_));
         }
     }
 
     showPop() {
         let now;
         console.log("La population est constituee de :");
-        console.log(`Nombre de marchands : ${this.nbMarchand}`);
-        for (let i = 0; i < this.nbMarchand; i++) {
-            this.marchands[i].Decrire();
+        console.log(`Nombre de marchands : ${this.nbMarchand_}`);
+        for (let i = 0; i < this.nbMarchand_; i++) {
+            this.marchands_[i].Decrire();
             now = new Date().getTime();
             while(new Date().getTime() < now + 500) { }
         }
-        console.log(`Nombre de guerriers : ${this.nbGuerrier}`);
-        for (let i = 0; i < this.nbGuerrier; i++) {
-            this.guerriers[i].Decrire();
+        console.log(`Nombre de guerriers : ${this.nbGuerrier_}`);
+        for (let i = 0; i < this.nbGuerrier_; i++) {
+            this.guerriers_[i].Decrire();
             now = new Date().getTime();
             while(new Date().getTime() < now + 500) { }
         }
@@ -42,18 +42,50 @@ class Population {
 
     reviveGue() {
         let transfert = Math.random() * 100;
-        if (this.nbGuerrier == 0) {
-            this.nbGuerrier = transfert;
-            this.nbMarchand = Math.floor(transfert/2) - 1;
+        if (this.nbGuerrier_ == 0) {
+            this.nbGuerrier_ = transfert;
+            this.nbMarchand_ = Math.floor(transfert/2) - 1;
         }
     }
 
     popOver() {
-        if (this.nbGuerrier || this.nbMarchand) {
+        if (this.nbGuerrier_ || this.nbMarchand_) {
             console.log('Allah akhbar !');
             console.log('La ville est detruite par manque de citoyen');
             delete this;
         }
+    }
+
+    get nbMarchand() {
+        return this.nbMarchand_;
+    }
+
+    set nbMarchand(nm) {
+        this.nbMarchand_ = nm;
+    }
+
+    get nbGuerrier() {
+        return this.nbGuerrier_;
+    }
+
+    set nbGuerrier(ng) {
+        this.nbGuerrier_ = ng;
+    }
+
+    get guerriers() {
+        return this.guerriers_;
+    }
+
+    set guerriers(a) {
+        this.guerriers_ = a;
+    }
+
+    get marchands() {
+        return this.marchands_;
+    }
+
+    set marchands(b) {
+        this.marchands_ = b;
     }
 }
 
