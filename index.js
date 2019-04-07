@@ -18,8 +18,8 @@ const setUp = (city,i) => {
 };
 
 const gameOn = (city,i) => {
-//   setUp(city[i],i);
-    console.log('The day start in ' + city[i].name);
+    console.log('---------- The day start in ' + city[i].name + '----------');
+    city[i].divinity.init();
     city[i].showShit();
     if(Math.random() <= 0.2) {
         console.log("The divinity " + city[i].divinity.name + " have been grateful today !");
@@ -65,6 +65,27 @@ for (let i = 0; i < cities.length; i++) {
     setUp(cities,i);
 }
 
-for (let i = 0; i < cities.length; i++) {
-    gameOn(cities,i);
+let j = 0;
+let condition = 1;
+
+while (condition) {
+    j++;
+    console.log('---------- DAY ' + j + "----------");
+    for (let i = 0; i < cities.length; i++) {
+
+        gameOn(cities,i);
+
+        if(!cities[i].isAlive()) {
+            console.log("Unfortunately the city " + cities[i].name + " is not with us anymore...");
+            cities.splice(i);
+            break;
+        }
+    }
+
+    if(cities.length === 1) {
+        console.log("The game is oveeeeer, city " + cities[0].name + "WON !");
+        console.log("Here are the stats : ");
+        cities[0].showShit();
+        condition = 0;
+    }
 }

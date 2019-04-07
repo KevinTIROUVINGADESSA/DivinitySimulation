@@ -96,6 +96,15 @@ class City {
 
     }
 
+    isAlive() {
+        if(this.corn_ === 0 || this.gold_ === 0|| this.population_.nbMarchand === 0 || this.population_.nbGuerrier === 0) {
+            return true;
+        }
+        else {
+            return true;
+        }
+    }
+
     trade(C2) {
         let max = (this.population_.nbMarchand_ > C2.population_.nbMarchand_) ? C2.population_.nbMarchand_ :
             this.population_.nbMarchand_;
@@ -156,7 +165,7 @@ class City {
 
     showShit() {
         console.log(`City: ${this.name_}, Corn ${this.corn_}, Gold: ${this.gold_}, Divinity: ${this.divinity.name}`);
-        this.population.showPop();
+        this.population_.showPop();
     }
 
     get name(){
