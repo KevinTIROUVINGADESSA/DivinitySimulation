@@ -4,6 +4,7 @@ class Marchand {
 
     constructor(actual_corn,actual_gold)
     {
+        this.prix = Math.random()*2;
         this.max_corn = actual_corn +100;
         this.max_gold = actual_gold +100;
         this.actual_gold = actual_gold;

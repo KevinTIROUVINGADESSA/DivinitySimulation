@@ -3,13 +3,11 @@ const {Marchand} = require('./marchand');
 
 class Population {
 
-    constructor(nbPeon, nbMarchand, nbGuerrier) {
-        this.nbPeon = 2; /*Math.floor(nbPeon);*/
+    constructor(nbMarchand, nbGuerrier) {
         this.nbMarchand = 3; /* Math.floor(nbMarchand); */
         this.nbGuerrier = 3;/*Math.floor(nbGuerrier);*/
         this.guerriers = [];
         this.marchands = [];
-        /*this.peons = [];*/
         this.init();
     }
 
@@ -23,42 +21,35 @@ class Population {
         {
             this.marchands[i] = new Marchand(Math.floor(1000/this.nbMarchand), Math.floor(1000/this.nbMarchand));
         }
-        /*for (var i = 0; i < this.nbPeon; i++)
-        {
-            this.peons[i] = new Peons(Math.random()*100, Math.random()*100,
-                Math.random()*100, Math.random()*100);
-        }*/
     }
 
     showPop() {
+        let now;
         console.log("La population est constituee de :");
         console.log(`Nombre de marchands : ${this.nbMarchand}`);
         for (let i = 0; i < this.nbMarchand; i++) {
             this.marchands[i].Decrire();
-            var now = new Date().getTime();
+            now = new Date().getTime();
             while(new Date().getTime() < now + 500) { }
         }
         console.log(`Nombre de guerriers : ${this.nbGuerrier}`);
         for (let i = 0; i < this.nbGuerrier; i++) {
             this.guerriers[i].Decrire();
-            var now = new Date().getTime();
+            now = new Date().getTime();
             while(new Date().getTime() < now + 500) { }
         }
-        console.log(`Nombre de peons : ${this.nbPeon}`);
-
     }
 
     reviveGue() {
         let transfert = Math.random() * 100;
         if (this.nbGuerrier == 0) {
             this.nbGuerrier = transfert;
-            this.nbPeon = Math.floor(transfert/2) + 1;
             this.nbMarchand = Math.floor(transfert/2) - 1;
         }
     }
 
     popOver() {
-        if (this.nbGuerrier || this.nbMarchand || this.nbPeon) {
+        if (this.nbGuerrier || this.nbMarchand) {
             console.log('Allah akhbar !');
             console.log('La ville est detruite par manque de citoyen');
             delete this;
