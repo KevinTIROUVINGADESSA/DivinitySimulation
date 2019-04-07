@@ -28,12 +28,12 @@ class Marchand {
         this.actual_gold -= gold_for_exchange;
         m.actual_corn -= corn_for_exchange;
         m.actual_gold += gold_for_exchange;
-        console.log("Exchange gold for corn: Gold  Exchanged: " + gold_for_exchange + "Corn Exchanged: "
+        console.log("Exchange gold for corn: Gold Exchanged: " + gold_for_exchange + " CornExchanged: "
             + corn_for_exchange);
         console.log("Marchand 1: Gold: " + this.actual_gold + " MaxGold: " + this.max_gold +
-            "Corn " + this.actual_corn + "Max Corn : " + this.max_corn);
+            "Corn " + this.actual_corn + " Max Corn : " + this.max_corn);
         console.log("Marchand 2: Gold: " + m.actual_gold + " MaxGold: " + m.max_gold +
-            "Corn " + m.actual_corn + "Max Corn : " + m.max_corn);
+            "Corn " + m.actual_corn + " Max Corn : " + m.max_corn);
     }
 
     Echange_corn_for_gold(m)
@@ -47,12 +47,12 @@ class Marchand {
         this.actual_gold += gold_for_exchange;
         m.actual_corn += corn_for_exchange;
         m.actual_gold -= gold_for_exchange;
-        console.log("Exchange corn for gold: Corn  Exchanged: " + corn_for_exchange + "Gold Exchanged: "
+        console.log("Exchange corn for gold: CornExchanged: " + corn_for_exchange + " GoldExchanged: "
             + gold_for_exchange);
         console.log("Marchand 1: Gold: " + this.actual_gold + " MaxGold: " + this.max_gold +
-            "Corn " + this.actual_corn + "Max Corn : " + this.max_corn);
+            "Corn " + this.actual_corn + " Max Corn : " + this.max_corn);
         console.log("Marchand 2: Gold: " + m.actual_gold + " MaxGold: " + m.max_gold +
-            "Corn " + m.actual_corn + "Max Corn : " + m.max_corn);
+            "Corn " + m.actual_corn + " Max Corn : " + m.max_corn);
     }
 
     get corn(){

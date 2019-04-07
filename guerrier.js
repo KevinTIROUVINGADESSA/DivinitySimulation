@@ -12,19 +12,22 @@ class Guerrier {
 
     Decrire()
     {
-         console.log(`Votre soldats a ${this.age} ans, ${this.force} de force, ${this.pv} PV et ${this.moral} de moral`);
+         console.log(`Votre soldats a ${this.age} ans, ${this.force} de force, ${this.pv} PV et ${this.moral} 
+         de moral`);
     }
 
     Attack(g)
     {
-        switch (this.age) {
-            case this.age <= 15 || this.age >= 60:
-                this.force = (this.force - 20 <= 0) ? 1 * this.moral : (this.force - 20) * this.moral;
-                console.log(`Votre soldat est trop age ou trop jeune pour faire la guerre son atk est reduite a ${this.force}`);
-                break;
+        switch (true) {
             case this.age <= 9 || this.age >=80:
                 this.force = (this.force - 30 <= 0) ? 0 : (this.force - 30) * this.moral;
-                console.log(`Votre soldat n a rien a foutre ici, vous avez vu son age, un peu de respect, atk est reduite a ${this.force}`);
+                console.log(`Votre soldat n a rien a foutre ici, vous avez vu son age, un peu de respect, atk 
+                est reduite a ${this.force}`);
+                break;
+            case this.age <= 15 || this.age >= 60:
+                this.force = (this.force - 20 <= 0) ? 1 * this.moral : (this.force - 20) * this.moral;
+                console.log(`Votre soldat est trop age ou trop jeune pour faire la guerre son atk est reduite a
+                 ${this.force}`);
                 break;
             default:
                 this.force = this.force * this.moral;
