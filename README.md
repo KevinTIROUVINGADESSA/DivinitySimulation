@@ -19,8 +19,14 @@ npm install --global xo
 ```
 # Running the test
 ```
+mocha test/*
+```
+
+#Run the simulation
+```
 node index.js
 ```
+
 
 # Built With
 - nodeJS
@@ -31,8 +37,27 @@ node index.js
 - Tirouvingadessa Kévin
 
 # About code
+##Divinity.js
+Class which define a divinity, with a name, an amount of gold/corn, a time factor and events that occurs
+Each divinity is define in the constructor of the a City
+   ### init()
+   Initialize the events of the divinity, such as favor -> gives 10% more gold and corn to the city
+   blessing -> gives x100 more gold and corn to the city.
+   retribution -> gives a random number of gold and corn to the city
+   
+   ###offeringCorn(offer)
+   Takes corn from a city as an "offer", if not the city is destroyed
+   It is randomly call in the index.js
+   
+   ##offeringGold(offer)
+   Takes gold from a city as an "offer", if not the city is destroyed
+   It is randomly call in the index.js
+    
+
 ## City.js
 Class which define each city with a name, divinity, population, corn, gold taken as arguments
+Each city is ruled by a divinity which can giveShit or getShit to/from the city
+The argument population is divided in 2 parts (number of merchant / number of warrior)
 Every city will be initialize in the file index.js
    ### fight()
   This method will make a fight between the current city and the one taken as argument
@@ -45,14 +70,19 @@ Every city will be initialize in the file index.js
   As in fight method, we choose the trade randomly(gold for corn OR corn for gold)
   The trade is made merchant per merchant
   There's also a probability that the merchant be attacked during the transaction, so the trade will be cancelled
-   ### cout_troupes()
+   ### countTroupes()
    Scan each warriors/merchants from the city and add their price to the rez variable
    this price(rez) is deducted from the city corn/gold
    It costs a ratio 2 corns / 1 gold 
    The population will be annihilate if the number of corn/gold equals 0
+   ### isAlive()
+   Check if the city is still able to continue, the city is destroyed if the number of merchants, warriors, the value of gold or corn equals 0 
+                                                   If one of those arguments equals 0 then the method return false else it return true
 ## Guerrier.js
 Class which define each warriors from a city, who's defined by his age, force, HP and moral
 The initialization of them is made on population.js by Math.random() method
+The argument "prix" is used for the cost of each merchant/warrior, when you create a warrior/merchant it cost some
+gold/corn to the city
    ### decrire()
    Describe a warrior by all of his parameters(age,strength,HP,moral) and print it to the console
       
@@ -88,7 +118,8 @@ The initialization of them is made on population.js by Math.random() method
    Same as Echange_gold_for_corn() but reverse gold and corn
    
 ## Population.js
-    
+Class which contains warriors and merchants in arrays, there numbers, we stock each warrior/ merchants
+on it so we can delete them when they die
    ### init()
    this method is called on the constructor of the class
    it set the warriors/merchants by calling the constructor of those class and affecting random values to it
@@ -96,4 +127,11 @@ The initialization of them is made on population.js by Math.random() method
    Method to print the actual population of the city, we use a timer to print the value with a certain delay
 
 ## Index.js
+
+File to run the simulation, we create 5 different cities and make them interact with each other.
+What you have to know is that you have a probability to trade, attack or do nothing for each day.
+The city dies when there is no more gold, corn, marchand or guerrier.
+You also a chance to give half of your money to the divinity, and aother one to get all her the money (giveShit, getShit) 
+
+
     
