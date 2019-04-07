@@ -1,20 +1,70 @@
 const {Divinity} = require('./divinity');
 const {Population} = require('./population');
 const {City} = require('./city');
+const EventEmitter = require('events');
+
+
 
 f = new City('Fellatio', 'Chibrax');
 c = new City('Cunnilingi', 'Fouff');
 a = new City('Analum', 'Traoum');
 b = new City('Bobilae', 'Nene');
 g = new City('Branleum', 'Mano');
-let villes = [f, c];
+let cities = [f, c, a, b, g];
 
-for (let i = 0; i < villes.length; i++) {
-    villes[i].showShit();
-    if (i == 0) {
-        villes[i].trade(villes[i + 1]);
-        let now = new Date().getTime();
-        while(new Date().getTime() < now + 5000) { }
-        villes[i].fight(villes[i +1]);
+const setUp = async (city,i) =>{
+    city[i].showShit();
+    city[i].init();
+    city[i].getShit(city[i].divinity);
+};
+
+const gameOn = async (city,i) =>{
+    setUp(city[i],i);
+
+    if(Math.random() <= 0.2) {
+        console.log("The divinity " + city[i].divinity.name + " have been grateful today !");
+        city[i].getShit(city[i].divinity);
     }
+
+    let whatToDoToday = Math.random();
+
+    if(whatToDoToday <= 0.3){
+        let whichCity = Math.floor((Math.random()*5));
+
+        while(whichCity === i){
+            whichCity = Math.floor((Math.random()*5))
+        }
+
+        console.log('Today we will attack ' + city[whichCity].name);
+        city[i].fight(city[whichCity]);
+    }
+    else if(whatToDoToday <= 0.6 && whatToDoToday >= 0.31){
+        let whichCity = Math.floor((Math.random()*5));
+
+        while(whichCity === i){
+            whichCity = Math.floor((Math.random()*5))
+        }
+
+        console.log('Today we will trade with  ' + city[whichCity].name);
+        city[i].trade(city[whichCity]);
+    }
+    else{
+        console.log("Let's do nothing for today.");
+    }
+
+
+    city[i].cout_troupes();
+
+    if(Math.random() <= 0.5){
+        console.log("The divinity " + city[i].divinity.name + " wants offrands !!!");
+        city[i].giveShit();
+    }
+};
+
+for (let i = 0; i < cities.length; i++) {
+    setUp(cities[i],i);
+}
+
+for (let i = 0; i < cities.length; i++) {
+    gameOn(cities[i],i);
 }
