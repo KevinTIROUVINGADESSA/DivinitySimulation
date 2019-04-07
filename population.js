@@ -5,7 +5,7 @@ class Population {
 
     constructor(nbMarchand, nbGuerrier) {
         this.nbMarchand_ = nbMarchand;
-        this.nbGuerrier_ = nbMarchand;
+        this.nbGuerrier_ = nbGuerrier;
         this.guerriers_ = [];
         this.marchands_ = [];
         this.init();
