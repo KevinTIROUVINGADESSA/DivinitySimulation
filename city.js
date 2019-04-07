@@ -6,8 +6,8 @@ class City {
     this.name_ = name || 'UNKCITY';
     this.divinity_ = new Divinity(divinityName);
     this.population_ = new Population(
-      Math.floor(1+Math.random() * 4),
-      Math.floor(1+Math.random() * 4)
+      Math.floor(1 + Math.random() * 4),
+      Math.floor(1 + Math.random() * 4)
     );
     this.corn_ = 1000;
     this.gold_ = 1000;
@@ -42,11 +42,11 @@ class City {
     let winOther = 0;
     if (Math.random() <= 0.4999) {
       for (i = 0; i < max; i++) {
-        this.population_.guerriers_[i].Attack(C2.population.guerriers[i]);
+        this.population_.guerriers_[i].attack(C2.population.guerriers[i]);
         if (!this.population_.guerriers_[i].estVivant()) {
           console.log('Che ton soldat est mort comme une merde');
           this.population_.nbGuerrier_ -= 1;
-          this.population_.guerriers_.splice(i,i);
+          this.population_.guerriers_.splice(i, i);
           max =
             this.population_.nbGuerrier_ > C2.population.nbGuerrier
               ? C2.population.nbGuerrier
@@ -64,11 +64,11 @@ class City {
     } else {
       for (i = 0; i < max; i++) {
         console.log(i);
-        C2.population.guerriers[i].Attack(this.population_.guerriers_[i]);
+        C2.population.guerriers[i].attack(this.population_.guerriers_[i]);
         if (!C2.population.guerriers[i].estVivant()) {
           console.log('Che ton soldat est mort comme une merde');
           C2.population.nbGuerrier -= 1;
-          C2.population.guerriers.splice(i,i);
+          C2.population.guerriers.splice(i, i);
           max =
             this.population_.nbGuerrier_ > C2.population.nbGuerrier
               ? C2.population.nbGuerrier
@@ -141,17 +141,21 @@ class City {
               '(Pas d echange il est die mamene)!'
           );
           this.population_.nbMarchand_ -= 1;
-          this.population_.marchands_.splice(i,i);
+          this.population_.marchands_.splice(i, i);
           max =
             this.population_.nbMarchand_ > C2.population.nbMarchand
               ? C2.population.nbMarchand
               : this.population_.nbMarchand_;
         } else {
-          this.population_.marchands_[i].EchangeGoldForCorn(
+          this.population_.marchands_[i].echangeGoldForCorn(
             C2.population.marchands[i]
           );
-          this.gold_ = this.population_.marchands_[i].actualGold_ / 2;
-          this.corn_ = this.population_.marchands_[i].actualCorn_ / 2;
+          this.gold_ = Math.floor(
+            this.population_.marchands_[i].actualGold_ / 2
+          );
+          this.corn_ = Math.floor(
+            this.population_.marchands_[i].actualCorn_ / 2
+          );
         }
       }
     } else {
@@ -162,17 +166,21 @@ class City {
               '(Pas d echange il est die mamene)!'
           );
           C2.population.nbMarchand -= 1;
-          this.population_.marchands_.splice(i,i);
+          C2.population.marchands.splice(i, i);
           max =
             this.population_.nbMarchand_ > C2.population.nbMarchand
               ? C2.population.nbMarchand
               : this.population_.nbMarchand_;
         } else {
-          this.population_.marchands_[i].EchangeCornForGold(
+          this.population_.marchands_[i].echangeCornForGold(
             C2.population.marchands[i]
           );
-          this.gold_ = this.population_.marchands_[i].actualGold / 2;
-          this.corn_ = this.population_.marchands_[i].actualCorn / 2;
+          this.gold_ = Math.floor(
+            this.population_.marchands_[i].actualGold / 2
+          );
+          this.corn_ = Math.floor(
+            this.population_.marchands_[i].actualCorn / 2
+          );
         }
       }
     }
