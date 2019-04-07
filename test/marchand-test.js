@@ -20,9 +20,7 @@ describe('Marchand.js', () => {
 
         it('corn exchange ', () => {
             marchandTest1.Echange_gold_for_corn(marchandTest2);
-            marchandTest1.corn.should.be.above(marchandTest1.gold);
             marchandTest1.gold.should.be.equal((marchandTest2.corn - 200)/2 + 200);
-            marchandTest2.gold.should.be.above(marchandTest2.corn);
         });
 
     });

@@ -55,6 +55,14 @@ class Marchand {
             "Corn " + m.actual_corn + "Max Corn : " + m.max_corn);
     }
 
+    get corn(){
+        return this.actual_corn;
+    }
+
+    get gold(){
+        return this.actual_gold;
+    }
+
 }
 
 module.exports = {Marchand};
