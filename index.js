@@ -66,7 +66,7 @@ for (let i = 0; i < cities.length; i++) {
 }
 
 let j = 0;
-let condition = 1;
+let condition = true;
 
 while (condition) {
     j++;
@@ -88,6 +88,6 @@ while (condition) {
         console.log("The game is oveeeeer, city " + cities[0].name + "WON !");
         console.log("Here are the stats : ");
         cities[0].showShit();
-        condition = 0;
+        condition = false;
     }
 }
