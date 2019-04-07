@@ -87,7 +87,7 @@ while (condition) {
     }
 
     if(cities.length === 1) {
-        console.log(*)
+        console.log("**********************************");
         console.log("The game is oveeeeer, city " + cities[0].name + " WON !");
         console.log("Here are the stats : ");
         cities[0].showShit();
