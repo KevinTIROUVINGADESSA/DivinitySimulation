@@ -4,8 +4,8 @@ const {Marchand} = require('./marchand');
 class Population {
 
     constructor(nbMarchand, nbGuerrier) {
-        this.nbMarchand_ = 3; /* Math.floor(nbMarchand); */
-        this.nbGuerrier_ = 3;/*Math.floor(nbGuerrier);*/
+        this.nbMarchand_ = nbMarchand;
+        this.nbGuerrier_ = nbMarchand;
         this.guerriers_ = [];
         this.marchands_ = [];
         this.init();
@@ -19,7 +19,8 @@ class Population {
         }
         for (let i = 0; i < this.nbMarchand_; i++)
         {
-            this.marchands_[i] = new Marchand(Math.floor(1000/this.nbMarchand_), Math.floor(1000/this.nbMarchand_));
+            this.marchands_[i] = new Marchand(Math.floor(1000/this.nbMarchand_), Math.floor(1000/this.nbMarchand_)
+                );
         }
     }
 
@@ -37,22 +38,6 @@ class Population {
             this.guerriers_[i].Decrire();
             now = new Date().getTime();
             while(new Date().getTime() < now + 500) { }
-        }
-    }
-
-    reviveGue() {
-        let transfert = Math.random() * 100;
-        if (this.nbGuerrier_ == 0) {
-            this.nbGuerrier_ = transfert;
-            this.nbMarchand_ = Math.floor(transfert/2) - 1;
-        }
-    }
-
-    popOver() {
-        if (this.nbGuerrier_ || this.nbMarchand_) {
-            console.log('Allah akhbar !');
-            console.log('La ville est detruite par manque de citoyen');
-            delete this;
         }
     }
 

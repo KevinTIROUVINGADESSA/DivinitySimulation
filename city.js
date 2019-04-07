@@ -5,7 +5,7 @@ class City {
     constructor(name, divinityName) {
         this.name_ = name || 'UNKCITY';
         this.divinity_ = new Divinity(divinityName);
-        this.population_ = new Population(Math.random() * 200, Math.random() * 200);
+        this.population_ = new Population(Math.floor(Math.random() * 4), Math.floor(Math.random() * 4));
         this.corn_ = 1000;
         this.gold_ = 1000;
         this.init();
@@ -48,7 +48,7 @@ class City {
                     winOther ++;
                 }
                 if (!C2.population.guerriers[i].estVivant()) {
-                    console.log("Votre guerrier a ete sauve par " + C2.divinity.name)
+                    console.log("Votre guerrier a ete sauve par " + C2.divinity.name);
                     C2.population.guerriers[i].pv = 1;
                     winThis ++;
                 }
@@ -184,12 +184,6 @@ class City {
     set gold(gold){
         this.corn_ = gold;
     }
-
-
-
-
-
-
 }
 
 module.exports = {City};
