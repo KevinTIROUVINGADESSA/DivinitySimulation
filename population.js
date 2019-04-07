@@ -13,9 +13,9 @@ class Population {
   init() {
     for (let i = 0; i < this.nbGuerrier_; i++) {
       this.guerriers_[i] = new Guerrier(
-        Math.floor(Math.random() * 50),
-        Math.floor(Math.random() * 50),
-        Math.floor(Math.random() * 50),
+        Math.floor(Math.random() * 100),
+        Math.floor(Math.random() * 100),
+        Math.floor(Math.random() * 100),
         Math.random()
       );
     }
