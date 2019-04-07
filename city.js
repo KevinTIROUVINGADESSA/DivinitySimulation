@@ -147,7 +147,7 @@ class City {
               ? C2.population.nbMarchand
               : this.population_.nbMarchand_;
         } else {
-          this.population_.marchands_[i].Echange_gold_for_corn(
+          this.population_.marchands_[i].EchangeGoldForCorn(
             C2.population.marchands[i]
           );
           this.gold_ = this.population_.marchands_[i].actualGold_ / 2;
@@ -168,7 +168,7 @@ class City {
               ? C2.population.nbMarchand
               : this.population_.nbMarchand_;
         } else {
-          this.population_.marchands_[i].Echange_corn_for_gold(
+          this.population_.marchands_[i].EchangeCornForGold(
             C2.population.marchands[i]
           );
           this.gold_ = this.population_.marchands_[i].actual_gold / 2;

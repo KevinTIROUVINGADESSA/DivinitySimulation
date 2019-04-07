@@ -14,87 +14,87 @@ class Marchand {
     );
   }
 
-  Echange_gold_for_corn(m) {
-    const max_gold_for_exchange = Math.min(
-      m.max_gold - m.actual_gold,
-      m.actual_corn / 2,
-      this.actual_gold_,
-      (this.max_corn_ - this.actual_corn_) / 2
+  EchangeGoldForCorn(m) {
+    const maxGoldForExchange = Math.min(
+      m.maxGold - m.actualGold,
+      m.actualCorn / 2,
+      this.actualGold_,
+      (this.maxCorn_ - this.actualCorn_) / 2
     );
-    const gold_for_exchange = Math.floor(Math.random() * max_gold_for_exchange);
-    const corn_for_exchange = 2 * gold_for_exchange;
+    const goldForExchange = Math.floor(Math.random() * maxGoldForExchange);
+    const cornForExchange = 2 * goldForExchange;
 
-    this.actual_corn_ += corn_for_exchange;
-    this.actual_gold_ -= gold_for_exchange;
-    m.actual_corn -= corn_for_exchange;
-    m.actual_gold += gold_for_exchange;
+    this.actualCorn_ += cornForExchange;
+    this.actualGold_ -= goldForExchange;
+    m.actualCorn -= cornForExchange;
+    m.actualGold += goldForExchange;
     console.log(
       'Exchange gold for corn: Gold Exchanged: ' +
-        gold_for_exchange +
+        goldForExchange +
         ' CornExchanged: ' +
-        corn_for_exchange
+        cornForExchange
     );
     console.log(
       'Marchand 1: Gold: ' +
-        this.actual_gold_ +
+        this.actualGold_ +
         ' MaxGold: ' +
-        this.max_gold_ +
+        this.maxGold_ +
         'Corn ' +
-        this.actual_corn_ +
+        this.actualCorn_ +
         ' Max Corn : ' +
-        this.max_corn_
+        this.maxCorn_
     );
     console.log(
       'Marchand 2: Gold: ' +
-        m.actual_gold +
+        m.actualGold +
         ' MaxGold: ' +
-        m.max_gold +
+        m.maxGold +
         'Corn ' +
-        m.actual_corn +
+        m.actualCorn +
         ' Max Corn : ' +
-        m.max_corn
+        m.maxCorn
     );
   }
 
-  Echange_corn_for_gold(m) {
-    const max_corn_for_exchange = Math.min(
-      this.max_corn_,
-      (this.max_gold_ - this.actual_gold_) * 2,
-      m.max_corn - m.actual_corn,
-      m.actual_gold / 2
+  EchangeCornForGold(m) {
+    const maxCornForExchange = Math.min(
+      this.maxCorn_,
+      (this.maxGold_ - this.actualGold_) * 2,
+      m.maxCorn - m.actualCorn,
+      m.actualGold / 2
     );
-    const corn_for_exchange = Math.floor(Math.random() * max_corn_for_exchange);
-    const gold_for_exchange = corn_for_exchange / 2;
+    const cornForExchange = Math.floor(Math.random() * maxCornForExchange);
+    const goldForExchange = cornForExchange / 2;
 
-    this.actual_corn -= corn_for_exchange;
-    this.actual_gold += gold_for_exchange;
-    m.actual_corn += corn_for_exchange;
-    m.actual_gold -= gold_for_exchange;
+    this.actualCorn_ -= cornForExchange;
+    this.actualGold_ += goldForExchange;
+    m.actualCorn += cornForExchange;
+    m.actualGold -= goldForExchange;
     console.log(
       'Exchange corn for gold: CornExchanged: ' +
-        corn_for_exchange +
+        cornForExchange +
         ' GoldExchanged: ' +
-        gold_for_exchange
+        goldForExchange
     );
     console.log(
       'Marchand 1: Gold: ' +
-        this.actual_gold_ +
+        this.actualGold_ +
         ' MaxGold: ' +
-        this.max_gold_ +
+        this.maxGold_ +
         'Corn ' +
-        this.actual_corn_ +
+        this.actualCorn_ +
         ' Max Corn : ' +
-        this.max_corn_
+        this.maxCorn_
     );
     console.log(
       'Marchand 2: Gold: ' +
-        m.actual_gold +
+        m.actualGold +
         ' MaxGold: ' +
-        m.max_gold +
+        m.maxGold +
         'Corn ' +
-        m.actual_corn +
+        m.actualCorn +
         ' Max Corn : ' +
-        m.max_corn
+        m.maxCorn
     );
   }
 
@@ -102,40 +102,40 @@ class Marchand {
     return this.prix_;
   }
 
-  set prix(p) {
-    this.prix_ = p;
+  set prix(v) {
+    this.prix_ = v;
   }
 
-  get max_corn() {
-    return this.max_corn_;
+  get maxCorn() {
+    return this.maxCorn_;
   }
 
-  set max_corn(c) {
-    this.max_corn_ = c;
+  set maxCorn(v) {
+    this.maxCorn_ = v;
   }
 
-  get max_gold() {
-    return this.max_gold_;
+  get maxGold() {
+    return this.maxGold_;
   }
 
-  set max_gold(g) {
-    this.max_gold_ = g;
+  set maxGold(v) {
+    this.maxGold_ = v;
   }
 
-  get actual_gold() {
-    return this.actual_gold_;
+  get actualGold() {
+    return this.actualGold_;
   }
 
-  set actual_gold(ag) {
-    this.actual_gold_ = ag;
+  set actualGold(v) {
+    this.actualGold_ = v;
   }
 
-  get actual_corn() {
-    return this.actual_corn_;
+  get actualCorn() {
+    return this.actualCorn_;
   }
 
-  set actual_corn(ac) {
-    this.actual_corn_ = ac;
+  set actualCorn(v) {
+    this.actualCorn_ = v;
   }
 }
 
