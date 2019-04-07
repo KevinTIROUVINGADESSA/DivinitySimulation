@@ -19,6 +19,7 @@ class Population {
         Math.random()
       );
     }
+
     for (let i = 0; i < this.nbMarchand_; i++) {
       this.marchands_[i] = new Marchand(
         Math.floor(1000 / this.nbMarchand_),
@@ -32,14 +33,14 @@ class Population {
     console.log('La population est constituee de :');
     console.log(`Nombre de marchands : ${this.nbMarchand_}`);
     for (let i = 0; i < this.nbMarchand_; i++) {
-      this.marchands_[i].Decrire();
+      this.marchands_[i].decrire();
       now = new Date().getTime();
       while (new Date().getTime() < now + 500) {}
     }
 
     console.log(`Nombre de guerriers : ${this.nbGuerrier_}`);
     for (let i = 0; i < this.nbGuerrier_; i++) {
-      this.guerriers_[i].Decrire();
+      this.guerriers_[i].decrire();
       now = new Date().getTime();
       while (new Date().getTime() < now + 500) {}
     }
