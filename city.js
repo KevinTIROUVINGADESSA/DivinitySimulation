@@ -26,10 +26,10 @@ class City {
   }
 
   giveShit() {
-    this.divinity.offeringCorn(this.corn_);
-    this.divinity.offeringGold(this.gold_);
-    this.corn_ = 0;
-    this.gold_ = 0;
+    this.divinity.offeringCorn(this.corn_ / 2);
+    this.divinity.offeringGold(this.gold_ / 2);
+    this.corn_ /= 2;
+    this.gold_ /= 2;
   }
 
   fight(C2) {
@@ -171,8 +171,8 @@ class City {
           this.population_.marchands_[i].EchangeCornForGold(
             C2.population.marchands[i]
           );
-          this.gold_ = this.population_.marchands_[i].actual_gold / 2;
-          this.corn_ = this.population_.marchands_[i].actual_corn / 2;
+          this.gold_ = this.population_.marchands_[i].actualGold / 2;
+          this.corn_ = this.population_.marchands_[i].actualCorn / 2;
         }
       }
     }
@@ -182,11 +182,11 @@ class City {
     let i;
     let rez = 0;
     for (i = 0; i < this.population_.nbGuerrier_; i++) {
-      rez += this.population_.guerriers_[i].prix_;
+      rez += this.population_.guerriers_[i].prix;
     }
 
     for (i = 0; i < this.population_.nbMarchand_; i++) {
-      rez += this.population_.marchands_[i].prix_;
+      rez += this.population_.marchands_[i].prix;
     }
 
     this.corn_ = this.corn_ - rez * 2 > 0 ? this.corn_ - rez * 2 : 0;

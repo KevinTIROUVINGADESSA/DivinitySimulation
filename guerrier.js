@@ -111,14 +111,6 @@ class Guerrier {
     this.pv_ = v;
   }
 
-  get moral() {
-    return this.moral_;
-  }
-
-  set moral(v) {
-    this.moral_ = v;
-  }
-
   get force() {
     return this.force_;
   }
