@@ -48,10 +48,10 @@ Every city will be initialize in the file index.js
 ## Guerrier.js
 Class which define each warriors from a city, who's defined by his age, force, HP and moral
 The initialization of them is made on population.js by Math.random() method
-   ### Decrire()
+   ### decrire()
    Describe a warrior by all of his parameters(age,strength,HP,moral) and print it to the console
       
-   ### Attack()
+   ### attack()
    This method takes another warrior as argument
    If the warrior is too old/ young, his strength is decreased
    The argument "moral" as an influence on the strength of the warrior, if his moral is up to 0.5 his
@@ -71,15 +71,15 @@ The initialization of them is made on population.js by Math.random() method
 ## Marchand.js
 Class which define each merchant from a city, who's defined by his age, force, HP and moral
 The initialization of them is made on population.js by Math.random() method
-   ### Decrire()
+   ### decrire()
    Describe a merchant by all of his parameters(actual_corn,actual_gold,max_corn,max_gold) and print it to the console
    
-   ### Echange_gold_for_corn()
+   ### echange_gold_for_corn()
    Take as argument the second merchant for the trade, we calculate the max amount of corn the first merchant can exchange
    One gold equals 2 corns
    Then we make the trade so we deduce the amount of gold from the first merchant and we add it to the second
    Same opération for the corns, we deduce the equivalent amount from the second merchant and add it to the first merchant.
-   ### Echange_corn_for_gold()
+   ### echange_corn_for_gold()
    Same as Echange_gold_for_corn() but reverse gold and corn
    ### get_corn()
    Accessor of corn, get the actual merchant corn
@@ -94,9 +94,9 @@ The initialization of them is made on population.js by Math.random() method
    it set the warriors/merchants by calling the constructor of those class and affecting random values to it
    ### showPop()
    Method to print the actual population of the city, we use a timer to print the value with a certain delay
-   ### reviveGue()
+ //  ### reviveGue()
    
-   ### popOver()
+ //  ### popOver()
 
 ## Index.js
 
