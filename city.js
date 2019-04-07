@@ -6,8 +6,8 @@ class City {
     this.name_ = name || 'UNKCITY';
     this.divinity_ = new Divinity(divinityName);
     this.population_ = new Population(
-      Math.floor(Math.random() * 4),
-      Math.floor(Math.random() * 4)
+      Math.floor(1+Math.random() * 4),
+      Math.floor(1+Math.random() * 4)
     );
     this.corn_ = 1000;
     this.gold_ = 1000;
@@ -46,7 +46,7 @@ class City {
         if (!this.population_.guerriers_[i].estVivant()) {
           console.log('Che ton soldat est mort comme une merde');
           this.population_.nbGuerrier_ -= 1;
-          this.population_.guerriers_.splice(i);
+          this.population_.guerriers_.splice(i,i);
           max =
             this.population_.nbGuerrier_ > C2.population.nbGuerrier
               ? C2.population.nbGuerrier
@@ -68,7 +68,7 @@ class City {
         if (!C2.population.guerriers[i].estVivant()) {
           console.log('Che ton soldat est mort comme une merde');
           C2.population.nbGuerrier -= 1;
-          C2.population.guerriers.splice(i);
+          C2.population.guerriers.splice(i,i);
           max =
             this.population_.nbGuerrier_ > C2.population.nbGuerrier
               ? C2.population.nbGuerrier
@@ -141,7 +141,7 @@ class City {
               '(Pas d echange il est die mamene)!'
           );
           this.population_.nbMarchand_ -= 1;
-          this.population_.marchands_.splice(i);
+          this.population_.marchands_.splice(i,i);
           max =
             this.population_.nbMarchand_ > C2.population.nbMarchand
               ? C2.population.nbMarchand
@@ -162,7 +162,7 @@ class City {
               '(Pas d echange il est die mamene)!'
           );
           C2.population.nbMarchand -= 1;
-          this.population_.marchands_.splice(i);
+          this.population_.marchands_.splice(i,i);
           max =
             this.population_.nbMarchand_ > C2.population.nbMarchand
               ? C2.population.nbMarchand
