@@ -85,8 +85,7 @@ class City {
                 }
             }
         }
-        if (winThis > winOther)
-        {
+        if (winThis > winOther) {
             console.log("City: " + this.name + " is the winner WoooohWoooh ! DaTaGueule " + C2.name + " !");
             this.gold += C2.gold / 2;
             this.corn += C2.corn / 2;
@@ -110,10 +109,8 @@ class City {
         let max = (this.population.nbMarchand > C2.population.nbMarchand) ? C2.population.nbMarchand :
             this.population.nbMarchand;
         let i;
-        if (Math.random() <= 0.4999)
-        {
-            for (i = 0; i < max; i++)
-            {
+        if (Math.random() <= 0.4999) {
+            for (i = 0; i < max; i++) {
                 if (Math.random()<0.08) {
                     console.log("Votre marchand marchand a ete attaque par de vilains, super pas gentils brigands"
                     + "(Pas d echange il est die mamene)!");
@@ -129,10 +126,8 @@ class City {
                 }
             }
         }
-        else
-        {
-            for (i = 0; i < max; i++)
-            {
+        else {
+            for (i = 0; i < max; i++) {
                 if (Math.random()<0.08) {
                     console.log("Votre marchand marchand a ete attaque par de vilains, super pas gentils brigands"
                         + "(Pas d echange il est die mamene)!");
@@ -152,12 +147,10 @@ class City {
 
     cout_troupes() {
         let i, rez = 0;
-        for (i = 0; i < this.population.nbGuerrier; i++)
-        {
+        for (i = 0; i < this.population.nbGuerrier; i++) {
             rez += this.population.guerriers[i].prix;
         }
-        for (i = 0; i < this.population.nbMarchand; i++)
-        {
+        for (i = 0; i < this.population.nbMarchand; i++) {
             rez += this.population.marchands[i].prix;
         }
         this.corn = (this.corn - rez*2 > 0) ? (this.corn - rez*2) : 0;
