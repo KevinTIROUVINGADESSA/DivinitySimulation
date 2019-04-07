@@ -7,14 +7,14 @@ class Marchand {
     this.actualCorn_ = actualCorn;
   }
 
-  Decrire() {
+  decrire() {
     console.log(
       `Votre marchand a ${this.actualGold_} golds et ${this.actualCorn_}` +
         `corns, il peut porter ${this.maxGold_} gold ${this.maxCorn_} corn`
     );
   }
 
-  EchangeGoldForCorn(m) {
+  echangeGoldForCorn(m) {
     const maxGoldForExchange = Math.min(
       m.maxGold - m.actualGold,
       m.actualCorn / 2,
@@ -56,7 +56,7 @@ class Marchand {
     );
   }
 
-  EchangeCornForGold(m) {
+  echangeCornForGold(m) {
     const maxCornForExchange = Math.min(
       this.maxCorn_,
       (this.maxGold_ - this.actualGold_) * 2,
