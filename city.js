@@ -44,18 +44,20 @@ class City {
         {
             for (let i = 0; i < max; i++)
             {
+                console.log(i);
                 this.population.guerriers[i].Attack(C2.population.guerriers[i]);
                 if (!C2.population.guerriers[i].estVivant())
-                    C2.population.guerriers.remove(i);
+                    C2.population.guerriers.splice(i);
             }
         }
         else
         {
             for (let i = 0; i < max; i++)
             {
+                console.log(i);
                 C2.population.guerriers[i].Attack(this.population.guerriers[i]);
                 if (!this.population.guerriers[i].estVivant())
-                    this.population.guerriers.remove(i);
+                    this.population.guerriers.splice(i);
             }
         }
     }
@@ -80,7 +82,7 @@ class City {
     }
 
     showShit() {
-        console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity:${this.divinity.name}`);
+        console.log(`City: ${this.name_}: Corn ${this.corn_}, Gold: ${this.gold_}, Divinity: ${this.divinity.name}`);
         this.population.showPop();
     }
 }

@@ -47,7 +47,7 @@ class Guerrier {
 
     recevoirDegats(degats)
     {
-        console.log(`Votre soldat a pris une grosse tatane, sa vie est passe de ${this.pv} a ${this.pv - degats}`);
+        console.log(`Votre a pris une grosse tatane, sa vie est passe de ${this.pv} a ${this.pv - degats}`);
         this.pv -= degats;
 
         if(this.pv<0)

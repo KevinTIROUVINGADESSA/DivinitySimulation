@@ -4,16 +4,17 @@ const {City} = require('./city');
 
 f = new City('Fellatio', 'Chibrax');
 c = new City('Cunnilingi', 'Fouff');
-a = new City('Analum', 'Trou');
+a = new City('Analum', 'Traoum');
 b = new City('Bobilae', 'Nene');
-g = new City('Extraterum', 'ET');
+g = new City('Branleum', 'Mano');
 let villes = [f, c];
 
-for (let i = 0; i < villes.length; i++)
-{
+for (let i = 0; i < villes.length; i++) {
     villes[i].showShit();
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + 5000) { }
-    if (i == 0)
-        villes[i].trade(villes[i+1]);
+    if (i == 0) {
+        villes[i].trade(villes[i + 1]);
+        let now = new Date().getTime();
+        while(new Date().getTime() < now + 5000) { }
+        villes[i].fight(villes[i +1]);
+    }
 }
