@@ -29,7 +29,7 @@ class Marchand {
             let gold_for_exchange = corn_for_exchange / 2 ;
 
             console.log("Action effectuée avec succès !  il reste " + this.actual_gold +" gold au marchand 1"
-                + " il gagne " + exchange_corn +" corn et possede desormais" + this.actual_corn +" corn");
+                + " il gagne " + corn_for_exchange +" corn et possede desormais" + this.actual_corn +" corn");
 
             this.actual_corn += corn_for_exchange;
             this.actual_gold -= gold_for_exchange;
@@ -123,8 +123,7 @@ class Marchand {
         }
     }
 
-<<<<<<< HEAD
-=======
+
     get corn()
     {
         return this.actual_corn;
@@ -135,7 +134,6 @@ class Marchand {
         return this.actual_gold;
     }
 
->>>>>>> 4f3da75d28f1dda291243be3d57a9685506b3930
 
 }
 module.exports = {Marchand};
